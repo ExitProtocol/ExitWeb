@@ -1,15 +1,12 @@
 import { Audiowide } from 'next/font/google';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'], display: 'swap' });
 
 export const Header = () => {
   return (
     <header className="top-0 bg-black/99 backdrop-blur-sm z-20">
-      {/* Coderain bg */}
       <div className="relative h-14 w-full overflow-hidden text-white text-sm">
-        {/* Video */}
         <video
           autoPlay
           muted
@@ -20,27 +17,21 @@ export const Header = () => {
           <source src="/code-rain.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-
-        {/* Optional: dark overlay */}
         <div className="absolute inset-0 bg-black/50"></div>
-
-        {/* Content */}
         <div className="relative z-10 flex justify-center items-center h-full">
           <div className={`${audiowide.className} inline-flex gap-1 items-center`}>
             <p>This isn’t just a token. It’s your $EXIT ticket</p>
           </div>
         </div>
       </div>
-
-      {/* Blurred part */}
       <div className="py-1">
         <div className="container px-3">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-2 invert">
+            <a href="/" className="flex items-center space-x-2 invert">
               <img src="/assets/EX-logo-dark.svg" alt="Exit Logo" height={15} width={30} />
               <span className={`${audiowide.className} inline-flex gap-1 items-center text-3xl`}>EXIT</span>
-            </Link>
-            <Image
+            </a>
+            <img
               src="/assets/menu.svg"
               alt="Menu Icon"
               height={20}
