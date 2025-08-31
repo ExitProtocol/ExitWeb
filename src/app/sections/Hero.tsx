@@ -7,8 +7,6 @@ import ArrowIcon from '@/assets/arrow-right.svg';
 import cylinderImage from '@/assets/cylinder.png';
 import noodleImage from "@/assets/noodle.png";
 import cogImage from '@/assets/cog.png';
-import { useRouter } from 'next/navigation';
-import { Link } from 'lucide-react';
 
 const MotionImage = motion(Image);
 
