@@ -1,4 +1,3 @@
-import logo from '@/assets/exitlogotst.png';
 import SocialX from '@/assets/social-x.svg';
 {/*import SocialInsta from '@/assets/social-insta.svg';*/}
 import SocialTele from '@/assets/telegram.png';
