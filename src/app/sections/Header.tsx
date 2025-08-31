@@ -1,4 +1,3 @@
-import ArrowRight from "@/assets/arrow-right.svg";
 import Logo from '@/assets/EX-logo-dark.svg';
 import Image from "next/image";
 import MenuIcon from '@/assets/menu.svg';
