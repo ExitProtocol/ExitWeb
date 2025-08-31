@@ -20,7 +20,6 @@ const wallets = [
 
 export const WalletConnect = () => {
   const [activeWallet, setActiveWallet] = useState<string | null>(null);
-  const [address, setAddress] = useState("");
   const router = useRouter(); // ✅ ROUTER HOOK
 
   return (
