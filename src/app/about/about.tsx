@@ -90,7 +90,7 @@ export default function AboutPage() {
   if (!terminalRef.current || !measureRef.current) return;
   const newHeight = measureRef.current.offsetHeight;
   terminalRef.current.style.height = `${newHeight}px`;
-}, [displayedLines]);
+}, [displayedLines]); // eslint-disable-next-line react-hooks/exhaustive-deps
 
   return (
     <main className="bg-black min-h-screen py-24 px-6 font-mono relative overflow-hidden text-[#BCBCBC]">
