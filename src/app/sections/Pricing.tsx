@@ -54,7 +54,7 @@ export const Pricing = () => {
         <div className="section-heading">
           <h2 className="section-title">Roadmap</h2>
           <p className="section-description mt-5">
-            The path to digital liberation is coded, and we’re writing it in real-time. $EXIT’s roadmap is not just a plan, it's a declaration of independence.
+            {`The path to digital liberation is coded, and we&apos;re writing it in real-time. $EXIT&apos;s roadmap is not just a plan, it&apos;s a declaration of independence.`}
           </p>
         </div>
         <div className="flex flex-col gap-50 items-center mt-10 lg:flex-row lg:items-end lg:justify-center"> {/* normalde gap-6 */}
