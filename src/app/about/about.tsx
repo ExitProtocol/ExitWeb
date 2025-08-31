@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 {/* import { cn } from '@/lib/utils'; // optional: classname utils*/}
 import '@/app/about/about.css'; // custom styles (explained below)
