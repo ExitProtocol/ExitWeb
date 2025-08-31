@@ -8,7 +8,6 @@ import realmsLogo from '@/assets/realms.png';
 import genoLogo from '@/assets/GENO.png';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
 
 export const LogoTicker = () => {
     return (
