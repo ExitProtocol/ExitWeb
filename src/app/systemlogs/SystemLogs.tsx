@@ -43,7 +43,7 @@ export default function SystemLogs() {
           {/* 🚦 Timeline Column */}
           <div className="relative w-10 flex flex-col items-center mt-2">
             <div className="absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2 bg-gradient-to-b from-[#FFFFFF] to-[#171717] overflow-hidden z-0">
-              {/* Pulse ışık çizgisi */}
+              {/* Pulse Line */}
               <div className="absolute left-0 w-full h-24 bg-white/40 blur-sm opacity-80 animate-pulse-slide z-10" />
             </div>
           </div>
@@ -52,18 +52,18 @@ export default function SystemLogs() {
           <div className="flex flex-col gap-28 ml-6 relative">
             {logs.map((log, index) => (
               <div key={index} className="relative pl-6">
-                {/* Nokta */}
+                {/* Dot */}
                 <div
                   className={clsx(
                     "absolute -left-0 top-2.5 w-4 h-4 rounded-full border border-[#171717] z-10",
                     index === logs.length - 1 ? "bg-white animate-blink" : "bg-white"
                   )}
                 />
-                {/* Alt çizgi */}
+                {/* Bottom Line */}
                 {index !== logs.length - 1 && (
                   <div className="absolute left-2 top-4 h-[6.5rem] w-[2px] bg-gradient-to-b from-white/40 to-[#171717] z-0" />
                 )}
-                {/* Log içeriği */}
+                {/* Log insert */}
                 <div className="text-sm text-white/60 mb-1">{log.date}</div>
                 <div className="text-lg text-white">{log.message}</div>
               </div>
