@@ -1,4 +1,5 @@
 import { Audiowide } from 'next/font/google';
+import Link from 'next/link';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'], display: 'swap' });
 
@@ -34,10 +35,10 @@ export const Header = () => {
       <div className="py-1">
         <div className="container px-3">
           <div className="flex items-center justify-between">
-            <a href="/" className="flex items-center space-x-2 invert">
-              <img src="/assets/EX-logo-dark.svg" alt="Exit Logo" height={15} width={30} />
+            <Link href="/" className="flex items-center space-x-2 invert">
+              <img src="/assets/EX-logo-dark.svg" alt="Exit Logo" height={15} width={30}>
               <span className={`${audiowide.className} inline-flex gap-1 items-center text-3xl`}>EXIT</span>
-            </a>
+            </Link>
             <img
               src="/assets/menu.svg"
               alt="Menu Icon"
@@ -46,16 +47,16 @@ export const Header = () => {
               className="md:hidden"
             />
             <nav className="hidden md:flex gap-6 text-white items-center">
-              <a href="/about">About</a>
-              <a href="/labs">Labs</a>
-              <a href="/coresystem">Core Systems</a>
-              <a href="/systemlogs">System Logs</a>
-              <a href="/help">Signal Uplink</a>
-              <a href="/wallets">
+              <Link href="/about">About</Link>
+              <Link href="/labs">Labs</Link>
+              <Link href="/coresystem">Core Systems</Link>
+              <Link href="/systemlogs">System Logs</Link>
+              <Link href="/help">Signal Uplink</Link>
+              <Link href="/wallets">
                 <button className="bg-white text-black px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight">
                   Join the Airdrop
                 </button>
-              </a>
+              </Link>
             </nav>
           </div>
         </div>
