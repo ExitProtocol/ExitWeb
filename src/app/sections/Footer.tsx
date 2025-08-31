@@ -1,5 +1,4 @@
 import SocialX from '@/assets/social-x.svg';
-{/*import SocialInsta from '@/assets/social-insta.svg';*/}
 import SocialTele from '@/assets/telegram.png';
 import SocialDc from '@/assets/discord.png';
 import SocialGit from '@/assets/github.svg';
