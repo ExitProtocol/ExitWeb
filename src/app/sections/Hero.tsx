@@ -7,6 +7,7 @@ import ArrowIcon from '@/assets/arrow-right.svg';
 import cylinderImage from '@/assets/cylinder.png';
 import noodleImage from "@/assets/noodle.png";
 import cogImage from '@/assets/cog.png';
+import Link from 'next/link';
 
 const MotionImage = motion(Image);
 
@@ -18,7 +19,6 @@ export const Hero = () => {
     });
     const translateY = useTransform(scrollYProgress, [0, 1], [150, -150]);
 
-    // 👇 Footer'a scroll fonksiyonu
     const scrollToFooter = () => {
         const footer = document.getElementById('footer');
         if (footer) {
@@ -44,15 +44,15 @@ export const Hero = () => {
                             $EXIT is the untraceable token for those who walk in the shadows. Absolute privacy. No trails. Just freedom.
                         </p>
                         <div className="flex gap-1 items-center mt-[30px]">
-                            {/* 🚀 Footer’a git */}
+                            {/* Go Footer */}
                             <button onClick={scrollToFooter} className="btn btn-primary">
                                 Join the Movement
                             </button>
-                            {/* 🌐 Sayfa linki */}
-                            <a href="/wallets" className="btn btn-text gap-1 flex items-center">
+                            {/* Page Link */}
+                            <Link href="/wallets" className="btn btn-text gap-1 flex items-center">
                                 <span>Claim $EXIT Now</span>
                                 <Image src={ArrowIcon} alt="Arrow Icon" height={20} width={20} />
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
