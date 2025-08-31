@@ -3,7 +3,6 @@
 import { useEffect, useState, useRef } from 'react';
 import pyramidImage from '@/assets/pyramid.png';
 import tubeImage from '@/assets/tube.png';
-import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const codeLines = [
