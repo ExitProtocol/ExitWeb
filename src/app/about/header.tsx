@@ -27,10 +27,10 @@ export const Header = () => {
       <div className="py-1">
         <div className="container px-3">
           <div className="flex items-center justify-between">
-            <a href="/" className="flex items-center space-x-2 invert">
+            <Link href="/" className="flex items-center space-x-2 invert">
               <img src="/assets/EX-logo-dark.svg" alt="Exit Logo" height={15} width={30} />
               <span className={`${audiowide.className} inline-flex gap-1 items-center text-3xl`}>EXIT</span>
-            </a>
+            </Link>
             <img
               src="/assets/menu.svg"
               alt="Menu Icon"
