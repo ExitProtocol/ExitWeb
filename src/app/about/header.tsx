@@ -36,7 +36,7 @@ export const Header = () => {
         <div className="container px-3">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-2 invert">
-              <img src="/assets/EX-logo-dark.svg" alt="Exit Logo" height={15} width={30}>
+              <img src="/assets/EX-logo-dark.svg" alt="Exit Logo" height={15} width={30} />
               <span className={`${audiowide.className} inline-flex gap-1 items-center text-3xl`}>EXIT</span>
             </Link>
             <img
