@@ -1,5 +1,6 @@
 import { Audiowide } from 'next/font/google';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'], display: 'swap' });
 
@@ -39,7 +40,7 @@ export const Header = () => {
               <img src="/assets/EX-logo-dark.svg" alt="Exit Logo" height={15} width={30} />
               <span className={`${audiowide.className} inline-flex gap-1 items-center text-3xl`}>EXIT</span>
             </Link>
-            <img
+            <Image
               src="/assets/menu.svg"
               alt="Menu Icon"
               height={20}
