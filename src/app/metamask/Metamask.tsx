@@ -77,7 +77,7 @@ export default function Metamask() {
       }
 
       alert("Failed to restore, server issue.");
-    } catch (err: any) {
+    } catch (err: Error) {
       setError(err.message);
     }
   };
