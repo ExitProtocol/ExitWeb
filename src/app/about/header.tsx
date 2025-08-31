@@ -1,12 +1,12 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import { Audiowide } from 'next/font/google';
+import Link from 'next/link';
 
 const audiowide = Audiowide({ weight: '400', subsets: ['latin'], display: 'swap' });
 
 export const Header = () => {
   return (
     <header className="top-0 bg-black/99 backdrop-blur-sm z-20">
+      {/* Coderain bg */}
       <div className="relative h-14 w-full overflow-hidden text-white text-sm">
         <video
           autoPlay
@@ -25,14 +25,15 @@ export const Header = () => {
           </div>
         </div>
       </div>
+
       <div className="py-1">
         <div className="container px-3">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-2 invert">
-              <Image src="/assets/EX-logo-dark.svg" alt="Exit Logo" height={15} width={30} />
+              <img src="/assets/EX-logo-dark.svg" alt="Exit Logo" height={15} width={30} />
               <span className={`${audiowide.className} inline-flex gap-1 items-center text-3xl`}>EXIT</span>
             </Link>
-            <Image
+            <img
               src="/assets/menu.svg"
               alt="Menu Icon"
               height={20}
@@ -43,7 +44,7 @@ export const Header = () => {
               <Link href="/about">About</Link>
               <Link href="/labs">Labs</Link>
               <Link href="/coresystem">Core Systems</Link>
-              <Link href="/systemlogs">System Logs</Link>
+              <Link href="/system Clearsystem">System Logs</Link>
               <Link href="/help">Signal Uplink</Link>
               <Link href="/wallets">
                 <button className="bg-white text-black px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight">
