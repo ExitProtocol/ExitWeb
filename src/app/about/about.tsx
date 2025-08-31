@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-{/* import { cn } from '@/lib/utils'; // optional: classname utils*/}
-import '@/app/about/about.css'; // custom styles (explained below)
+import '@/app/about/about.css';
 
 const lines = [
   "$EXIT: Next-Gen Privacy Protocol Powered by Advanced AI and Zero-Knowledge Cryptography",
@@ -63,14 +62,13 @@ export default function AboutPage() {
   // Typewriter logic
   useEffect(() => {
     if (currentLine >= lines.length) return;
-
     const line = lines[currentLine];
     const currentText = line.slice(0, charIndex + 1);
-
-    const updatedLines = [...displayedLines];
-    updatedLines[currentLine] = currentText;
-    setDisplayedLines(updatedLines);
-
+    setDisplayedLines((prev) => {
+      const updatedLines = [...prev];
+      updatedLines[currentLine] = currentText;
+      return updatedLines;
+    });
     if (charIndex < line.length) {
       const timeout = setTimeout(() => {
         setCharIndex((prev) => prev + 1);
@@ -83,7 +81,7 @@ export default function AboutPage() {
       }, 500);
       return () => clearTimeout(timeout);
     }
-  }, [charIndex, currentLine]);
+  }, [charIndex, currentLine, lines]);
 
   // Terminal height sync with hidden measure div
   useEffect(() => {
@@ -98,7 +96,6 @@ export default function AboutPage() {
       <div className="absolute top-0 left-0 w-full h-full grid-bg z-0" />
       <div className="absolute top-0 left-0 w-full h-full particles-bg z-0" />
       <div className="absolute top-0 left-0 w-full h-full noise-bg z-0" />
-
       <div className="flex justify-center z-10 relative">
         {/* Actual Terminal Box */}
         <div
@@ -120,7 +117,6 @@ export default function AboutPage() {
             </p>
           ))}
         </div>
-
         {/* Hidden Measure Box */}
         <div
           ref={measureRef}
