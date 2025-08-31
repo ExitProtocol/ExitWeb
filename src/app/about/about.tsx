@@ -84,10 +84,10 @@ export default function AboutPage() {
 
   // Terminal height sync with hidden measure div
   useEffect(() => {
-    if (!terminalRef.current || !measureRef.current) return;
-    const newHeight = measureRef.current.offsetHeight;
-    terminalRef.current.style.height = `${newHeight}px`;
-  }, [displayedLines]);
+  if (!terminalRef.current || !measureRef.current) return;
+  const newHeight = measureRef.current.offsetHeight;
+  terminalRef.current.style.height = `${newHeight}px`;
+}, [displayedLines]);
 
   return (
    <main className="bg-black min-h-screen py-24 px-6 font-mono relative overflow-hidden text-[#BCBCBC]">
