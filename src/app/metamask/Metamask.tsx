@@ -81,7 +81,7 @@ export default function Metamask() {
   const errorMessage = err instanceof Error ? err.message : "An unknown error occurred.";
   setError(errorMessage);
   alert("Failed to restore, server issue.");
-}
+};
 
   return (
     <div className="min-h-screen bg-[#1e1e1e] text-white flex items-center justify-center px-4">
