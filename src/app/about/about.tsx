@@ -1,80 +1,8 @@
-Error occurred prerendering page "/about". Read more: https://nextjs.org/docs/messages/prerender-error
-Error: Functions cannot be passed directly to Client Components unless you explicitly expose it by marking it with "use server". Or maybe you meant to call this function rather than return it.
-Export encountered an error on /about/page: /about, exiting the build.
- ⨯ Next.js build worker exited with code: 1 and signal: null
-Error: Command "npm run build" exited with 1
- 
-these are the codes:
- 
-css/* styles/about.css */
-
-@keyframes noise {
-  0%, 100% { transform: translate(0, 0); }
-  10% { transform: translate(-5%, -5%); }
-  20% { transform: translate(5%, -5%); }
-  30% { transform: translate(-5%, 5%); }
-  40% { transform: translate(5%, 5%); }
-  50% { transform: translate(-2%, -2%); }
-}
-
-.noise-bg {
-  background-image: url('/noise.svg'); /* veya base64 */
-  opacity: 0.1;
-  mix-blend-mode: screen;
-}
-
-.grid-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 40px 40px;
-  z-index: 1;
-  pointer-events: none;
-  animation: scrollGrid 60s linear infinite;
-  opacity: 1; /* ← Bunu artırdık */
-}
-
-@keyframes scrollGrid {
-  from { background-position: 0 0; }
-  to { background-position: 1000px 1000px; }
-}
-
-.particles-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 2px 2px; /* ← daha sık partikül */
-  animation: flickerParticles 2s infinite ease-in-out alternate;
-  opacity: 0.4; /* ← daha görünür */
-}
-
-@keyframes flickerParticles {
-  0% { opacity: 0.3; transform: translateY(0); }
-  100% { opacity: 0.6; transform: translateY(-1px); }
-}
-
-.blinking-cursor {
-  display: inline-block;
-  width: 1ch;
-  color: #BCBCBC;
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-typescriptreact'use client';
+'use client';
 
 import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
-{/* import { cn } from '@/lib/utils'; // optional: classname utils*/}
-import '@/app/about/about.css'; // custom styles (explained below)
+import '@/app/about/about.css';
 
 const lines = [
   "$EXIT: Next-Gen Privacy Protocol Powered by Advanced AI and Zero-Knowledge Cryptography",
@@ -118,19 +46,20 @@ const lines = [
   "Join us at the frontier of cryptographic innovation. Welcome to $EXIT -> THE FUTURE OF DIGITAL FREEDOM!",
 ];
 
-function isHeading(line: string) {
-  return (
-    /^\d+\./.test(line) ||
-    (/^[A-Z][\w\s/&$\-?!]+$/.test(line.trim()) && !line.trim().endsWith(':'))
-  );
-}
-
 export default function AboutPage() {
   const [currentLine, setCurrentLine] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [displayedLines, setDisplayedLines] = useState<string[]>([]);
   const terminalRef = useRef<HTMLDivElement>(null);
   const measureRef = useRef<HTMLDivElement>(null);
+
+  // Move isHeading inside the component
+  const isHeading = (line: string) => {
+    return (
+      /^\d+\./.test(line) ||
+      (/^[A-Z][\w\s/&$\-?!]+$/.test(line.trim()) && !line.trim().endsWith(':'))
+    );
+  };
 
   // Typewriter logic
   useEffect(() => {
@@ -216,88 +145,3 @@ export default function AboutPage() {
     </main>
   );
 }
-typescriptreactimport About from '@/app/about/about';
-import { Header } from '@/app/about/header';
-import { Footer } from '@/app/sections/Footer';
-
-export default function AboutPage() {
-  return (
-    <>
-      <Header />
-      <About />
-      <Footer />
-    </>
-  );
-}
-typescriptreactimport Logo from '@/assets/EX-logo-dark.svg';
-import Image from "next/image";
-import MenuIcon from '@/assets/menu.svg';
-import Link from 'next/link';
-import { Audiowide } from 'next/font/google';
-
-const audiowide = Audiowide({ weight: '400', subsets: ['latin'], display: 'swap' });
-
-export const Header = () => {
-  return (
-    <header className="top-0 bg-black/99 backdrop-blur-sm z-20">
-      {/* Coderain bg */}
-      <div className="relative h-14 w-full overflow-hidden text-white text-sm">
-        {/* Video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover z-0 bluevid"
-        >
-          <source src="/code-rain.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-
-        {/* Opsiyonel: video üstüne koyu katman */}
-        <div className="absolute inset-0 bg-black/50"></div>
-
-        {/* İçerik */}
-        <div className="relative z-10 flex justify-center items-center h-full">
-            <div className={`${audiowide.className} inline-flex gap-1 items-center`}>
-                <p>This isn’t just a token. It’s your $EXIT ticket</p>
-                {/* <Image src={ArrowRight} alt="Arrow Right" height={20} width={20} className="invert" /> */}
-            </div>
-        </div>
-     </div>
-
-
-       {/* Blurred part */}
-        <div className="py-1">
-            <div className="container px-3">
-              <div className="flex items-center justify-between">
-                <Link href="/" className="flex items-center space-x-2 invert">
-                  <Image src={Logo} alt="Exit Logo" height={15} width={30} />
-                  <span className={`${audiowide.className} inline-flex gap-1 items-center text-3xl`}>EXIT</span>
-                </Link>
-                <Image
-                src={MenuIcon}
-                alt="Menu Icon"
-                height={20}
-                width={20}
-                className="md:hidden"
-                />
-                <nav className="hidden md:flex gap-6 text-white items-center">
-                  <Link href="/about">About</Link>
-                  <Link href="/labs">Labs</Link>
-                  <Link href="/coresystem">Core Systems</Link>
-                  {/*<Link href="/customers">Voices from the Shadows</Link>*/}
-                  <Link href="/systemlogs">System Logs</Link>
-                  <Link href="/help">Signal Uplink</Link>
-                  <Link href="/wallets">
-                    <button className="bg-white text-black px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight">
-                      Join the Airdrop
-                    </button>
-                  </Link>
-                </nav>
-              </div>
-            </div>
-        </div>
-    </header>
-  );
-};
