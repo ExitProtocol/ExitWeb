@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 {/* import { cn } from '@/lib/utils'; // optional: classname utils*/}
 import '@/app/about/about.css'; // custom styles (explained below)
@@ -87,10 +88,10 @@ export default function AboutPage() {
 
   // Terminal height sync with hidden measure div
   useEffect(() => {
-  if (!terminalRef.current || !measureRef.current) return;
-  const newHeight = measureRef.current.offsetHeight;
-  terminalRef.current.style.height = `${newHeight}px`;
-}, [displayedLines]); // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (!terminalRef.current || !measureRef.current) return;
+    const newHeight = measureRef.current.offsetHeight;
+    terminalRef.current.style.height = `${newHeight}px`;
+  }, [displayedLines]);
 
   return (
     <main className="bg-black min-h-screen py-24 px-6 font-mono relative overflow-hidden text-[#BCBCBC]">
